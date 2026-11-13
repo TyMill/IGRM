@@ -1,0 +1,31 @@
+from pathlib import Path
+p=Path(__file__).resolve().parents[1]/'IGRM_manuscript_v13.tex'
+s=p.read_text()
+s=s.replace('\\title{\\textbf{Information-Geometric Reliability Monitoring under Partial Feedback:}\\\\[3pt]\nDecision-Aware Label Acquisition and Availability-Constrained Information Bounds}',
+'''\\title{\\textbf{Safe-Coverage Recovery under Partial Feedback:}\\\\[3pt]
+Information Limits, State Availability, and Uniform Finite-Sample Guarantees}''')
+s=s.replace('Research draft v1.2, 12 November 2026','Research draft v1.3, 12 November 2026')
+s=s.replace('A stream-availability refinement combines maximum state-arrival frequencies, a finite query budget, and information required for reliable recovery, producing a convex necessary feasibility frontier. For a restricted two-state model we additionally provide an explicit binomial decision rule satisfying the error and budget requirements, thereby bracketing its feasible monitoring horizon.',
+'''A stream-availability refinement combines maximum state-arrival frequencies, a finite query budget, and information required for reliable recovery, producing a convex necessary feasibility frontier. We complement this result with an explicit fixed-horizon, general-$K$ simultaneous certificate for a finite family of acceptance masks, together with a margin-based near-oracle coverage guarantee under deterministic statewise query quotas. For a restricted two-state model we also give an exact binomial decision rule, thereby bracketing its feasible monitoring horizon.''')
+s=s.replace('These results support the feasibility of decision-aware information acquisition, but do not yet establish a general performance theorem or superiority of Fisher--Rao geometry.',
+'''The new general-$K$ sufficiency result analyzes a separate quota baseline, not the deployed VOI heuristic; no optimality or superior Fisher--Rao geometry follows from these findings.''')
+s=s.replace('\\noindent\\textbf{Keywords:} selective prediction; partial feedback; safe coverage; value of information; Fisher--Rao geometry; anytime confidence sequences; active labeling; distribution shift.',
+'''\\noindent\\textbf{Keywords:} selective prediction; partial feedback; safe coverage; information-theoretic bounds; finite-sample confidence; active labeling; state availability; distribution shift.''')
+s=s.replace('and (iv) a paired experimental comparison against uniform, uncertainty-driven, and surrogate-optimal acquisition using two different certifiers.',
+'''(iv) a constructive, uniform fixed-horizon guarantee for general finite policy families under statewise query quotas; and (v) a paired experimental comparison against uniform, uncertainty-driven, and surrogate-optimal acquisition using two different certifiers.''')
+s=s.replace('\\input{math/arrival_availability_theorems_v12.tex}',
+'''\\input{math/arrival_availability_theorems_v12.tex}
+\\input{math/multipolicy_achievability_v13.tex}
+
+\\subsection{Three-state numerical example of the multi-policy guarantee}
+Consider a fixed target epoch with $K=3$, $q=(0.5,0.3,0.2)$, conditional errors $r=(0.03,0.06,0.90)$, risk limit $\\tau=0.15$, and desired coverage $c=0.75$. The candidate family contains all seven nonempty state subsets. The oracle-optimal safe mask is $A^*=\\{1,2\\}$, with coverage $0.80$ and selective risk $(0.5\\cdot0.03+0.3\\cdot0.06)/0.8=0.04125$; including state 3 violates the risk limit. With $n=80\\,000$ and deterministic query quotas $m=(6000,5000,3000)$, the total hard budget is $B=14\\,000$, or 17.5\\% of arrivals. Allocate $\\alpha_q=\\alpha_r=0.025$. Equation~\\eqref{eq:multi-radii} gives $d_q\\approx0.006355$ and statewise errors $d=(0.021371,0.023411,0.030223)$. The sufficient population risk-margin requirement in~\\eqref{eq:multi-margins} is $0.050331$, while the actual numerator margin $\\tau C_q(A^*)-\\sum_{i\\in A^*}q_i r_i$ is $0.087$. The coverage margin condition also holds: $0.80>0.75+2d_q$. Hence, barring concentration or quota-shortage events, the rule certifies a safe mask with true coverage at least $0.80-2d_q\\approx\\mathbf{0.7873}$. This is a rigorously checked analytic example and a separate small simulation, not a performance prediction for VOI v0.10.
+''')
+s=s.replace('Proposition~\\ref{prop:single-mask-achievable} gives a restricted constructive counterpart using an exact binomial-tail test; it does not establish efficiency of v0.10.',
+'''Proposition~\\ref{prop:single-mask-achievable} gives a restricted constructive counterpart using an exact binomial-tail test. Theorem~\\ref{thm:multi} extends constructive sufficiency to a finite family of masks and quantifies when a separated safe mask can be recovered, with a near-oracle coverage bound; it deliberately uses fixed deterministic quotas and elementary concentration rather than claiming optimal sequential performance for v0.10.''')
+s=s.replace('An information-complexity formulation gives a necessary lower bound on the cost of safe-coverage recovery, while current confidence-set guarantees explain how label-query and policy adaptation preserve false-certification control.',
+'''An information-complexity formulation gives a necessary lower bound on the cost of safe-coverage recovery. A new general-$K$ fixed-horizon construction gives a sufficient uniform guarantee and a separated-mask coverage approximation under a hard statewise label budget, while existing anytime confidence-set guarantees explain how predictable querying and policy adaptation preserve false-certification control.''')
+s=s.replace('general attainability and independent external validation remain open.',
+'''general efficiency guarantees for adaptive acquisition, tight finite-sample rates, and independent external validation remain open.''')
+s=s.replace('The experimental tables are generated from a byte-reproduced 30-seed Mac run. Results on an external industrial dataset and a new efficiency theorem for the implemented value-of-information policy are \\emph{not yet established}.',
+'''The experimental tables are generated from a byte-reproduced 30-seed Mac run. Results on an external industrial dataset and a new efficiency theorem for the implemented value-of-information policy are \\emph{not yet established}. The general-$K$ sufficiency theorem concerns a separate deterministic-quota certifier.''')
+p.write_text(s)

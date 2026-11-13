@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the associated Mathematics manuscript when available. The citation below is preliminary."
+title: "Safe-Coverage Recovery under Partial Feedback: Joint Risk Certification and Label-Efficient Policy Admission"
+type: software
+authors:
+  - family-names: Miller
+    given-names: Tymoteusz Igor
+    orcid: "https://orcid.org/0000-0002-5962-5334"
+date-released: 2026-11-13
+version: 0.1.0

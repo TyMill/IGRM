@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "igrm-safe-coverage"
+version = "0.1.0"
+description = "Reproducible research benchmark for selective-risk certification and label budgets"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.3,<3", "pandas>=2.2,<4", "scipy>=1.17,<2", "scikit-learn>=1.8,<2", "plotnine>=0.15,<1", "matplotlib>=3.10,<4"]
+
+[project.optional-dependencies]
+test = ["pytest>=9,<10"]
+
+[tool.setuptools]
+py-modules = ["bench_methods", "stronger_baselines"]
+packages = ["v19_dependency", "v19_dependency.scripts"]

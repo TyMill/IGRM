@@ -1,0 +1,20 @@
+{
+  "seed": "314159265+world_id*1000003+31*rep; rep=1000..1199",
+  "datasets": "Seven existing synthetic world definitions from v1.9; no world-level external holdout",
+  "method_family": "Existing five baselines + precommitted hybrid and exact Holm masks",
+  "hard_label_cap": 4096,
+  "pilot_n": 4096,
+  "tau": 0.15,
+  "gamma": 0.25,
+  "delta_q": 0.025,
+  "delta_cert": 0.025,
+  "hybrid_early_share": 0.1,
+  "hybrid_target_fraction": 0.9,
+  "fixed_holm": "Holm stepdown exact one-sided Bernoulli binomial p-values for pilot-eligible masks",
+  "limitations": "Two new methods chosen after looking at v1.9 summaries. No preregistered confirmatory tuning. Correlated replicate worlds.",
+  "sha256": {
+    "stronger_200.csv": "d9f9f70c57d3d2cc7c984c565800dea793d2f314fa16336be92543268b476a4e",
+    "all_paired_7_methods.csv": "0398cbeac438caffc81ab367d0dd531868c65ecaaf7d5a22913ae6f23eeaf6cc",
+    "summary_7_methods.csv": "5595bfa72142b38fee0db70f7f142cf2e2be33c8f63b41a753ed74e0b587cfa7"
+  }
+}
