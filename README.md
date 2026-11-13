@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24194883.svg)](https://doi.org/10.5281/zenodo.24194883)
+
 # IGRM: Safe-Coverage Recovery under Partial Feedback
 
 Research code and frozen results for a *Mathematics* manuscript (submission draft). Not the CAIS source code, and not a deployment-ready assurance component.
